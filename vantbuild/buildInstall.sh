@@ -52,7 +52,7 @@ mkdir -p $install_path
 
 wget https://github.com/stxinsite/ompi/archive/refs/tags/v4.1.2.tar.gz
 tar vxf v4.1.2.tar.gz
-pushd v4.1.2
+pushd ./ompi-4.1.2
 
 echo "install path: " $install_path
 
