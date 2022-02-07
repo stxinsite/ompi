@@ -60,7 +60,7 @@ echo "PWD: " $PWD
 
 set -x
 
-./configure --prefix=$install_path --enable-mpi-cxx --enable-mpi-fortran --with-slurm --with-pmix --with-cuda=$CUDA_HOME |& tee config.out
+./configure --prefix=$install_path --enable-mpi-cxx --enable-mpi-fortran --with-slurm --with-cuda=$CUDA_HOME |& tee config.out
 
 make -j 12 |& tee make.out
 
