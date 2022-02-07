@@ -50,9 +50,9 @@ install_path=/software_common/OpenMPI-CudaAware/$vtag
 
 mkdir -p $install_path
 
-wget https://github.com/stxinsite/ompi/archive/refs/tags/v4.1.2.tar.gz
-tar vxf v4.1.2.tar.gz
-pushd ./ompi-4.1.2
+wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.2.tar.gz
+tar vxf openmpi-4.1.2.tar.gz
+pushd ./openmpi-4.1.2
 
 echo "install path: " $install_path
 
