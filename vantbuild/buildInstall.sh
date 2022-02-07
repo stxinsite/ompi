@@ -1,8 +1,4 @@
 #!/bin/bash
-#
-### File to execute the custom build and installation stages from Jenkins
-### One can use the env variable "STAGE_NAME" set Jenkins to differentiate
-### the stages. The stages in question here are "Build" and "Install"
 
 # make sure we pick up the default profile
 if [ -f "/etc/profile" ] ; then
@@ -15,7 +11,7 @@ module load webproxy
 
 set -e 
 
-env
+printenv | sort
 
 pushd $thisdir/..
 
@@ -38,6 +34,7 @@ if [ -z $vtag ]; then
     popd
     exit 1
 fi
+
 if [ "$vtag" == 'fatal: No names found, cannot describe anything.' ]; then
 	echo "Attempting to install an untagged branch, aborting install"
     popd
@@ -51,7 +48,11 @@ if [[ $ncommit -ne 0 ]]; then
 	#exit 1
 fi
 
+echo "vtag: " $vtag
+
 install_path=$(echo $1 | sed "s:_latest:/releases:")/$vtag
+
+echo "install path: " $install_path
 
 set -x
 
