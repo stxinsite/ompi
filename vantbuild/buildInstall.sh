@@ -30,11 +30,6 @@ if [ -z $branch ]; then
 fi
 
 vtag=$(git describe --abbrev=0 --tags 2>&1)
-if [ -z $vtag ]; then
-	echo "Version tags not available in master/main branch, aborting install"
-    popd
-    exit 1
-fi
 
 if [ "$vtag" == 'fatal: No names found, cannot describe anything.' ]; then
 	echo "Attempting to install an untagged branch, aborting install"
@@ -51,7 +46,7 @@ fi
 
 echo "vtag: " $vtag
 
-install_path=$(echo $1 | sed "s:_latest:/releases:")/$vtag
+install_path=OpenMPI-CudaAware/$vtag
 
 echo "install path: " $install_path
 
