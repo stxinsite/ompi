@@ -39,16 +39,20 @@ fi
 
 ncommit=$(git log $vtag..HEAD --oneline | wc -l)
 if [[ $ncommit -ne 0 ]]; then
-	echo "Latest version has commits beyond the newest tag, aborting install"
+	echo "Latest version has commits beyond the newest tag"
 	#popd
 	#exit 1
 fi
 
 echo "vtag: " $vtag
 
-install_path=OpenMPI-CudaAware/$vtag
+install_path=software_common/OpenMPI-CudaAware/$vtag
+
+mkdir -p $install_path
 
 echo "install path: " $install_path
+
+echo "PWD: " $PWD
 
 set -x
 
@@ -57,7 +61,6 @@ set -x
 make -j 12 |& tee make.out
 
 
-mkdir -p $install_path
 make install |& tee install.out
 
 popd
