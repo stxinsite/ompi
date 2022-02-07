@@ -46,7 +46,7 @@ fi
 
 echo "vtag: " $vtag
 
-install_path=software_common/OpenMPI-CudaAware/$vtag
+install_path=/software_common/OpenMPI-CudaAware/$vtag
 
 mkdir -p $install_path
 
