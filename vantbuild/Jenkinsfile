@@ -1,0 +1,8 @@
+@Library('pipeline-library') _
+
+defaultPipeline("",
+               [
+                cmake_dir:"vantbuild",
+                install_script:"vantbuild/buildInstall.sh",
+                install_branches:"v4.1.x"
+               ])
