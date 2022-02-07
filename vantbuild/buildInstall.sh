@@ -13,6 +13,7 @@ set -e
 
 printenv | sort
 
+thisdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 pushd $thisdir/..
 
 if [ -z $WORKSPACE ]; then
